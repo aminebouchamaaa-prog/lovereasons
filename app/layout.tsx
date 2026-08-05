@@ -17,8 +17,8 @@ const dancing = Dancing_Script({
 });
 
 export const metadata: Metadata = {
-  title: "33 Reasons Why I Love You",
-  description: "A journey of 33 love letters, one each day until we meet again.",
+  title: "31 Reasons Why I Love You",
+  description: "A journey of 31 love letters, one each day until we meet again.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
