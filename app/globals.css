@@ -1,26 +1,109 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fff5f7;
+  --foreground: #4a3030;
+  --pink-soft: #fce4ec;
+  --pink-medium: #e8a0b4;
+  --pink-dark: #c97d92;
+  --rose-accent: #d4728a;
+  --cream: #fdf6f0;
+  --paper-white: #fefcfa;
+  --shadow-soft: rgba(180, 120, 140, 0.12);
+  --shadow-medium: rgba(180, 120, 140, 0.2);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-cormorant: var(--font-cormorant);
+  --font-dancing: var(--font-dancing);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-cormorant), "Georgia", serif;
+}
+
+/* Envelope CSS */
+.envelope-container {
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Particules flottantes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
+  25% { transform: translateY(-20px) translateX(10px); opacity: 0.5; }
+  50% { transform: translateY(-10px) translateX(-5px); opacity: 0.2; }
+  75% { transform: translateY(-30px) translateX(5px); opacity: 0.4; }
+}
+.animate-float { animation: float 5s ease-in-out infinite; }
+
+/* Titre qui glisse vers le haut */
+@keyframes title-reveal {
+  0% { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.animate-title-reveal {
+  animation: title-reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+/* Ligne qui s'étire */
+@keyframes expand-width {
+  0% { width: 0; opacity: 0; }
+  100% { width: 3rem; opacity: 1; }
+}
+.animate-expand-width {
+  animation: expand-width 0.6s ease-out forwards;
+  animation-delay: 0.6s;
+  width: 0;
+}
+
+/* Ligne signature */
+@keyframes expand-width-right {
+  0% { width: 0; opacity: 0; }
+  100% { width: 6rem; opacity: 1; }
+}
+.animate-expand-width-right {
+  animation: expand-width-right 0.8s ease-out forwards;
+  animation-delay: 1s;
+  width: 0;
+}
+
+/* Pulse lent */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+.animate-pulse-slow { animation: pulse-slow 3s ease-in-out infinite; }
+
+/* Spin lent */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow { animation: spin-slow 8s linear infinite; }
+
+/* Fade in */
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+  opacity: 0;
 }
